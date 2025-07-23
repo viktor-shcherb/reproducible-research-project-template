@@ -104,4 +104,4 @@ This script will:
 After it finishes, your dependencies and containers will be fully up-to-date without manual intervention.
 
 ---
-This repository was generated from [<href>]. See [TEMPLATE.md](TEMPLATE.md) for instructions on customizing the template.
+This repository uses the following [template](https://github.com/viktor-shcherb/reproducible-research-project-template). See [TEMPLATE.md](TEMPLATE.md) for instructions on customizing the template.
