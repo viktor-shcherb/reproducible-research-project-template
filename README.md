@@ -1,5 +1,7 @@
 # Research Project Title
 
+[![codecov](https://codecov.io/gh/OWNER/reproducible-research-project-template/branch/main/graph/badge.svg)](https://codecov.io/gh/OWNER/reproducible-research-project-template)
+
 ## Overview
 
 <!-- TODO: Write a concise description of the project, its goals, and its main components. -->
@@ -44,7 +46,7 @@ This project is fully containerized with Docker to guarantee bit‑for‑bit rep
    ```
 
    * Your project directory is bind‑mounted into `/app` inside the container.
-   * A persistent pip cache volume keeps installs fast.
+   * A persistent pip cache volume speeds up installs.
 
 3. **Run commands inside the container**
 
@@ -54,6 +56,7 @@ This project is fully containerized with Docker to guarantee bit‑for‑bit rep
 
    # From within: install extras, run tests, start analysis, etc.
    pytest --cov=common --cov-report=term-missing
+   # Coverage results will be uploaded to Codecov by the CI pipeline
    python scripts/your_analysis.py --input data/data.parquet --output results/
 
    # Or exit when you’re done:
@@ -99,3 +102,6 @@ This script will:
 3. Redeploy all services (with `--remove-orphans` to clean up any old containers).
 
 After it finishes, your dependencies and containers will be fully up-to-date without manual intervention.
+
+---
+This repository was generated from [<href>]. See [TEMPLATE.md](TEMPLATE.md) for instructions on customizing the template.
