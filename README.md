@@ -17,7 +17,7 @@
 
 ## Environment Setup
 
-This project is fully containerized with Docker to guarantee bit‑for‑bit reproducibility. You can either drive everything from the CLI or hook into your IDE (PyCharm) for an integrated experience. Follow the instructions that match your workflow and operating system.
+This project is fully containerized with Docker to guarantee bit‑for‑bit reproducibility. You can either drive everything from the CLI or hook into your IDE (PyCharm) for an integrated experience. Follow the instructions that match your workflow.
 
 ### Prerequisites
 
