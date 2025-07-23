@@ -32,8 +32,8 @@ jobs:
 
       - name: Run tests via Docker Compose
         run: |
-          docker compose run --rm \
-            -e COVERAGE_FILE=/tmp/.coverage \
+          docker compose run --rm --user root \
+            -e COVERAGE_FILE=/reports/.coverage \
             -v "${{ github.workspace }}/reports:/reports" \
             app \
             bash -lc "pytest \
