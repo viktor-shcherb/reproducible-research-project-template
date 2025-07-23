@@ -25,14 +25,14 @@ jobs:
 
       - name: Build with Docker Compose
         run: |
-          docker-compose build --pull app
+          docker compose build --pull app
 
       - name: Create reports folder
         run: mkdir -p reports
 
       - name: Run tests via Docker Compose
         run: |
-          docker-compose run --rm \
+          docker compose run --rm \
             -v "${{ github.workspace }}/reports:/reports" \
             app \
             bash -lc "pytest \
