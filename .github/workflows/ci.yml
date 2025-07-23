@@ -28,12 +28,14 @@ jobs:
           docker compose build --pull app
 
       - name: Create reports folder
-        run: mkdir -p reports
+        run: |
+          mkdir -p reports
+          chmod 777 reports
 
       - name: Run tests via Docker Compose
         run: |
-          docker compose run --rm --user root \
-            -e COVERAGE_FILE=/reports/.coverage \
+          docker compose run --rm \
+            -e COVERAGE_FILE=/tmp/.coverage \
             -v "${{ github.workspace }}/reports:/reports" \
             app \
             bash -lc "pytest \
