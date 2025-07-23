@@ -54,7 +54,7 @@ This project is fully containerized with Docker to guarantee bit‑for‑bit rep
 
    # From within: install extras, run tests, start analysis, etc.
    pytest --cov=common --cov-report=term-missing
-   python scripts/your_analysis.py --input data.parquet --output results/
+   python scripts/your_analysis.py --input data/data.parquet --output results/
 
    # Or exit when you’re done:
    exit
