@@ -1,0 +1,51 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # proper “default” syntax for env‑var substitution
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    # bind‑mount your code directory read/write
+    volumes:
+      - ./:/app:cached          # local “.” → container “/app”
+      - pip-cache:/home/dev/.cache/pip
+      - ${HOME}/Downloads:/home/dev/Downloads:cached
+      # add any other needed volumes here
+    working_dir: /app
+    # keep the container alive so PyCharm can exec into it
+    tty: true
+    stdin_open: true
+    command: tail -f /dev/null  # <— infinite loop
+
+  deps:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    volumes:
+      - ./:/app:cached
+      - pip-cache:/home/dev/.cache/pip
+      - pip-tools-cache:/home/dev/.cache/pip-tools
+    working_dir: /app
+    user: dev
+    environment:
+      PIP_TOOLS_CACHE_DIR: /home/dev/.cache/pip-tools
+    command:
+      - bash
+      - -lc
+      - |
+        pip install --user pip-tools \
+        && python -m piptools compile requirements/base.in \
+             -o requirements/base.txt \
+             --generate-hashes --resolver=backtracking \
+        && python -m piptools compile requirements/dev.in \
+             -o requirements/dev.txt \
+             --generate-hashes --resolver=backtracking
+
+volumes:
+  pip-cache:
+  pip-tools-cache:

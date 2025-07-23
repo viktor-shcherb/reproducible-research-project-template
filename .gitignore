@@ -1,0 +1,70 @@
+# Byte-compiled / caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+dist/
+downloads/
+eggs/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+/venv/
+/env/
+/.venv/
+
+# Pip cache (if accidentally placed in repo)
+/__pypackages__/
+
+# Test / coverage reports
+.pytest_cache/
+/.coverage
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Large data files (Parquet, etc.)
+/*.parquet
+
+# Logs and runtime files
+*.log
+*.pid
+*.sock
+*.tmp
+
+# Environment variables
+.env
+.env.*
+
+# Editor directories and config
+.idea/
+/.vscode/
+/*.sublime-workspace
+/*.sublime-project
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Docker (ignore local compose override files, if any)
+docker-compose.override.yml
+
+# Misc
+*.swp
+*~

@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/jazzband/pip-tools
+    rev: 7.4.1
+    hooks:
+      - id: pip-compile
+        name: pip-compile (base)
+        files: ^requirements/base\.in$
+        args: [--generate-hashes, --resolver=backtracking, -o, requirements/base.txt]
+      - id: pip-compile
+        name: pip-compile (dev)
+        files: ^requirements/dev\.in$
+        args: [--generate-hashes, --resolver=backtracking, -o, requirements/dev.txt]
