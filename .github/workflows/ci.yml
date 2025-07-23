@@ -12,15 +12,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Cache Docker layers
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: false
-          load: true
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
-
       - name: Build Docker image
         run: |
           docker build -t myapp-ci -f Dockerfile .
